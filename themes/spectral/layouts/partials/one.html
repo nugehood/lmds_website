@@ -1,0 +1,24 @@
+{{ $md := .Site.Params.body_is_markdown | default false }}
+
+{{ with .Site.Params.one }}
+{{ if .enable }}
+	<section id="one" class="wrapper style1 special">
+		<div class="inner">
+			<header class="major">
+        <h2>{{ .title | safeHTML}}</h2>
+
+        {{ partial "body_text.html" (dict "context" . "md" $md) }}
+			</header>
+			<ul class="icons major">
+				<img src="img/logo.png" alt="" srcset="" width="100px">
+				<!--
+        {{ range .icon }}
+        <li><span class="icon {{ .icon }} major style{{ .style }}"><span class="label">{{ .label }}</span></span></li>
+        {{ end }}
+		-->
+			</ul>
+		
+		</div>
+	</section>
+{{ end }}
+{{ end }}
